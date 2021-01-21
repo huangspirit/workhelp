@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "作业帮办公用品系统",
+  "usingComponents": {
+    "uni-popup": "/components/uni-popup/uni-popup",
+    "uni-number-box": "/components/uni-number-box/uni-number-box",
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "uni-search-bar": "/components/uni-search-bar/uni-search-bar",
+    "addbusket-detail": "/mycomponents/addbusketdetail"
+  }
+}

@@ -1,0 +1,90 @@
+.addbusketDetail.data-v-75b6dc8d {
+  padding: 30rpx;
+  font-size: 26rpx;
+  color: #333;
+  background: #fff;
+}
+.addbusketDetail .gray.data-v-75b6dc8d {
+  color: #666;
+}
+.addbusketDetail .type .list.data-v-75b6dc8d {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  padding-top: 30rpx;
+}
+.addbusketDetail .type .list .item.data-v-75b6dc8d {
+  padding: 12rpx 30rpx;
+  border-radius: 60rpx;
+  margin-right: 30rpx;
+  margin-bottom: 30rpx;
+  border: 1rpx solid #ccc;
+  white-space: nowrap;
+}
+.addbusketDetail .type .list .item.active.data-v-75b6dc8d {
+  background: #007CF9;
+  border: 1px solid #007CF9;
+  color: #fff;
+}
+.addbusketDetail .detail.data-v-75b6dc8d {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.addbusketDetail .detail .item.data-v-75b6dc8d {
+  width: 50%;
+  padding-bottom: 30rpx;
+}
+.addbusketDetail .detail .item .value.data-v-75b6dc8d {
+  padding-left: 30rpx;
+}
+.addbusketDetail .bottom.data-v-75b6dc8d {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding-top: 30rpx;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.addbusketDetail .bottom .keyMoney.data-v-75b6dc8d {
+  margin-left: 10rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.addbusketDetail .bottom .instro.data-v-75b6dc8d {
+  margin-left: 10rpx;
+  width: 25rpx;
+  height: 25rpx;
+  background-image: url(/assets/img/说明@2x.png);
+  background-size: cover;
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+.addbusketDetail .bottom .instro.data-v-75b6dc8d {
+    background-image: url(/assets/img/说明@3x.png);
+    background-size: cover;
+}
+}
+.addbusketDetail .bottom .btnwrap.data-v-75b6dc8d {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.addbusketDetail .bottom .btnwrap .btn.data-v-75b6dc8d {
+  float: right;
+  width: 200rpx;
+  padding: 14rpx 0;
+  background: #007CF9;
+  border-radius: 4px;
+  color: #fff;
+  text-align: center;
+}
+

@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/detail",
+    "pages/myCenter/myCenter",
+    "pages/myCenter/orderlist",
+    "pages/myCenter/feedback",
+    "pages/busket/busket"
+  ],
+  "subPackages": [],
+  "window": {
+    "defaultTitle": "uni-app",
+    "titleBarColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "textColor": "#7A7E83",
+    "selectedColor": "#007CF9",
+    "backgroundColor": "#fff",
+    "items": [
+      {
+        "pagePath": "pages/index/index",
+        "name": "办公用品",
+        "icon": "static/首页-选中@3x.png",
+        "activeIcon": "static/首页-选中@3x.png"
+      },
+      {
+        "pagePath": "pages/busket/busket",
+        "name": "领用篮",
+        "icon": "static/领用篮@3x.png",
+        "activeIcon": "static/领用篮@3x.png"
+      },
+      {
+        "pagePath": "pages/myCenter/myCenter",
+        "name": "我的",
+        "icon": "static/领用篮@3x.png",
+        "activeIcon": "static/领用篮@3x.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

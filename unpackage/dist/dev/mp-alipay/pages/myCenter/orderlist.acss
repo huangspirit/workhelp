@@ -1,0 +1,20 @@
+.orderlist .type.data-v-7c3f5eb7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  margin-top: 10rpx;
+}
+.orderlist .type .item.data-v-7c3f5eb7 {
+  color: #666;
+  border-bottom: 6rpx solid transparent;
+  padding-bottom: 6rpx;
+  font-size: 30rpx;
+}
+.orderlist .type .item.active.data-v-7c3f5eb7 {
+  color: #333333;
+  font-weight: bold;
+  border-color: #007CF9;
+}
+

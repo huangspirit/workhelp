@@ -1,0 +1,1 @@
+<view class="orderlist"><block a:for="{{list}}" a:for-item="item" a:for-index="__i0__"><block a:if="{{list.length}}"><view><order-item vue-id="{{'e73e8be2-1-'+__i0__}}" item0="{{item}}" onVueInit="__l"></order-item></view></block></block></view>

@@ -1,0 +1,44 @@
+.feedback.data-v-0277c00a {
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.feedback .title.data-v-0277c00a {
+  margin-bottom: 20rpx;
+}
+.feedback .textarea.data-v-0277c00a {
+  background: #F6F8FA;
+  border-radius: 16rpx;
+  padding: 22rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.feedback .wrap.data-v-0277c00a {
+  position: relative;
+}
+.feedback .wrap .showshort.data-v-0277c00a {
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+.feedback .wrap .showshort .nocont.data-v-0277c00a {
+  color: #999;
+}
+.feedback .btn.data-v-0277c00a {
+  position: fixed;
+  bottom: 40rpx;
+  width: 100%;
+  left: 0rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.feedback .button.data-v-0277c00a {
+  height: 84rpx;
+  line-height: 84rpx;
+  background: #007CF9;
+  color: #fff;
+  border-radius: 48rpx;
+}
+.feedback .button.disabled.data-v-0277c00a {
+  background: #AAABB3;
+}
+

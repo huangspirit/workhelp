@@ -1,0 +1,108 @@
+{
+	"pages": [{
+		"path": "pages/index/index",
+		"style": {
+			"navigationBarTitleText": "作业帮办公用品系统"
+			
+		},
+		"usingComponents":{
+		            "vant-popup":"/wxcomponents/vant/popup/index"
+		        }
+	},{
+		"path": "pages/index/detail",
+		"style": {
+			"navigationBarTitleText": "商品详情"
+		},
+		"usingComponents":{
+		            "vant-empty":"/wxcomponents/vant/empty/index"
+		        }
+	},
+	{
+            "path" : "pages/myCenter/myCenter",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "作业帮办公用品个人中心",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+		{
+		        "path" : "pages/myCenter/orderlist",
+		        "style" :                                                                                    
+		        {
+		            "navigationBarTitleText": "订单列表",
+					"enablePullDownRefresh": false,
+					"usingComponents":{
+						"van-tab":"/wxcomponents/vant/tab/index",
+						"van-tabs":"/wxcomponents/vant/tabs/index"
+					}
+		        }
+				
+		        
+		    }
+		,
+		{
+		        "path" : "pages/myCenter/feedback",
+		        "style" :                                                                                    
+		        {
+		            "navigationBarTitleText": "意见反馈",
+		            "enablePullDownRefresh": false
+		        }
+		        
+		    }
+        ,{
+            "path" : "pages/busket/busket",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "作业帮办公用品领用篮",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationStyle":"custom",
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+		
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007CF9",
+		"borderStyle": "#f0f0f0",
+		"backgroundColor": "#fff",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/首页-选中@3x.png",
+				"selectedIconPath": "static/首页-选中@3x.png",
+				"text": "办公用品"
+			},
+			{
+				"pagePath": "pages/busket/busket",
+				"iconPath": "static/领用篮@3x.png",
+				"selectedIconPath": "static/领用篮@3x.png",
+				"text": "领用篮"
+			}, {
+				"pagePath": "pages/myCenter/myCenter",
+				"iconPath": "static/领用篮@3x.png",
+				"selectedIconPath": "static/领用篮@3x.png",
+				"text": "我的"
+			}
+		]
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}

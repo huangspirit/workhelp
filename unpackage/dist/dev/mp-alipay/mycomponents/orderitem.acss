@@ -1,0 +1,36 @@
+.orderitemdetail.data-v-5d9adc62 {
+  padding: 0 30rpx;
+  font-size: 26rpx;
+  color: #666666;
+}
+.orderitemdetail .title.data-v-5d9adc62 {
+  height: 90rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  line-height: 90rpx;
+  border-bottom: 1px solid #ccc;
+}
+.orderitemdetail .title .detail.data-v-5d9adc62 {
+  font-size: 28rpx;
+  color: #007CF9;
+}
+.orderitemdetail .cont.data-v-5d9adc62 {
+  border-bottom: 10rpx solid #fafafa;
+  padding: 20rpx 0;
+}
+.orderitemdetail .cont .item.data-v-5d9adc62 {
+  margin-bottom: 10rpx;
+}
+.orderitemdetail .cont .item.countTime.data-v-5d9adc62 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+

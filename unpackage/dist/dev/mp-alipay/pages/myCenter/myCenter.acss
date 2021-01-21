@@ -1,0 +1,115 @@
+.myCenter .title.data-v-67b508b4 {
+  background: #007CF9;
+  height: 240rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  color: #fff;
+  font-weight: bold;
+  padding: 0 30rpx;
+}
+.myCenter .title .image.data-v-67b508b4 {
+  height: 140rpx;
+  width: 140rpx;
+  border-radius: 100%;
+}
+.myCenter .title .margin-right.data-v-67b508b4 {
+  margin-right: 30rpx;
+}
+.myCenter .cont.data-v-67b508b4 {
+  background: #fff;
+  border-radius: 20rpx;
+  margin-top: -30rpx;
+  padding-top: 10rpx;
+}
+.myCenter .cont .sub.data-v-67b508b4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0 30rpx;
+}
+.myCenter .cont .sub .item.data-v-67b508b4 {
+  background: #F6F8FA;
+  border-radius: 20rpx;
+  height: 104rpx;
+  padding: 0 20rpx;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.myCenter .cont .sub .item .left.data-v-67b508b4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.myCenter .cont .sub .item .img.data-v-67b508b4 {
+  width: 48rpx;
+  height: 48rpx;
+}
+.myCenter .cont .sub .item.money.data-v-67b508b4 {
+  margin-right: 30rpx;
+}
+.myCenter .cont .sub .item.money .img.data-v-67b508b4 {
+  background-image: url(/assets/img/余额@2x.png);
+  background-size: cover;
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+.myCenter .cont .sub .item.money .img.data-v-67b508b4 {
+    background-image: url(/assets/img/余额@3x.png);
+    background-size: cover;
+}
+}
+.myCenter .cont .sub .item.departmoney .img.data-v-67b508b4 {
+  background-image: url(/assets/img/部门余额@2x.png);
+  background-size: cover;
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+.myCenter .cont .sub .item.departmoney .img.data-v-67b508b4 {
+    background-image: url(/assets/img/部门余额@3x.png);
+    background-size: cover;
+}
+}
+.myCenter .list.data-v-67b508b4 {
+  padding: 30rpx;
+}
+.myCenter .list .item.data-v-67b508b4 {
+  height: 100rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  border-bottom: 1px solid #f0f0f0;
+}
+.myCenter .list .item .icon.data-v-67b508b4 {
+  width: 18rpx;
+  height: 32rpx;
+  background-image: url(/assets/img/查看@2x.png);
+  background-size: cover;
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+.myCenter .list .item .icon.data-v-67b508b4 {
+    background-image: url(/assets/img/查看@3x.png);
+    background-size: cover;
+}
+}
+
