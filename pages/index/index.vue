@@ -77,7 +77,7 @@
 			</view>
 		</view>
 		<view class="bottom">
-			<view>总计：<text class="money" @click="openpop('cart')">￥3.89</text></view>
+			<view>总计：<text class="money" @click="openpop('cart')">￥{{carPrice}}</text></view>
 			<view class="keyMoney">个人余额：￥8 <view class="instro"></view></view>
 			<view class="btnwrap" @click="buyHandler"><view class="btn">领取</view></view>
 		</view>
@@ -88,7 +88,7 @@
 					<view class="name">{{addBusketItem.goodsName}}</view>
 					<view class="close" @click="closePop"></view>
 				</view>
-				<addbusketDetail :showKeyMoney="false" :goodsId='addBusketItem.goodsId' :storeId="addBusketItem.storeId"></addbusketDetail>
+				<addbusketDetail :showKeyMoney="false" :goodsId='addBusketItem.goodsId' :storeId="addBusketItem.storeId" @func="changePrice"></addbusketDetail>
 			</view>
 		</uni-popup>
 		<uni-popup ref="workArea" type="bottom" @change="changepop">
@@ -123,9 +123,10 @@
 				<view class="title">
 					<div style="width:100%;">
 						<view class="close" @click="closePop"></view>
-						<view class="name">总计：3.89</view>
+						<view class="name">总计：￥{{carPrice}}</view>
 						<view class="subtitle">
-							<view>商品列表</view>
+							    <view>商品列表</view>
+								<view v-if="carCount!=0">共计{{carCount}}件宝贝</view>
 							<view class="clearCart" @click="clearCart">
 								<text class="deleteicon"></text>
 								清空购物车
@@ -135,13 +136,14 @@
 				</view>
 				
 				<view class="goodslist">
-				<view v-for="item in selectGoods" class="item" :key="item.id">
+				<view v-for="(item,index) in selectGoods" class="item" :key="item.id">
 					<view class="name">{{item.goodsName}}</view>
 					<view class="sub">
 						<text class="desc">{{item.choseGuige.title}}</text>
-						<text class="price">￥{{item.price}}</text>
+						<text class="desc">剩余:{{item.choseGuige.num}}</text>
+						<text class="price">￥{{item.choseGuige.price}}</text>
 						<view class="count">
-							<uni-number-box :min="0" :max="9" :step="1"></uni-number-box>
+							<uni-number-box :min="parseInt(item.goodsNumber)"  :value="parseInt(item.goodsNumber)"   :max="parseInt(item.choseGuige.num)" :step="parseInt(item.choseGuige.beginCount)"  @change="monitorNumber($event,item,index)"></uni-number-box>
 						</view>
 					</view>
 				</view>
@@ -200,6 +202,8 @@
 		},
 		data() {
 			return {
+				 carCount:0,
+				 carPrice:0,
 				 scrollTop: 0,
 				  old: {
 				                 scrollTop: 0
@@ -242,6 +246,8 @@
 			//监控是否登录
 			this.checkLogin();
 			this.getnoticelist();
+			console.log("我回来了");
+			this.initCarPrice();
 			if(localStorage.getItem('defaultArea')){
 				this.defaultArea = {
 					name:localStorage.getItem('defaultArea') || '点击选择职场'}
@@ -287,9 +293,15 @@
 			
 		},
 		methods: {
+			
+			changePrice(datass){
+				this.carPrice=datass;
+			},
 			clearCart(){
 				localStorage.removeItem("busket")
 				this.selectGoods = []
+				this.carCount=0;
+				this.carPrice=0;
 			},
 			
 			
@@ -516,6 +528,32 @@
 				}
 				
 			},
+			initCarPrice(){
+				this.carPrice=0;
+				this.carCount=0;
+				this.selectGoods =JSON.parse(localStorage.getItem("busket")) || [];
+				this.carCount=this.selectGoods.length;
+				if(this.carCount!=0){
+					for(let item of this.selectGoods){
+						this.carPrice+=item.choseGuige.price * item.goodsNumber
+					}
+					var num=this.carPrice;
+					this.carPrice=num.toFixed(2);
+				}
+			},
+			monitorNumber(e,item,index){
+				  if(e!=item.goodsNumber){
+					  console.log(e);
+					  console.log(item);
+					  console.log(index);
+					  let items=item;
+					  items.goodsNumber=e;
+					 this.selectGoods.splice(index, 1);
+					 this.selectGoods.splice(index,0,items);
+				    localStorage.setItem("busket",JSON.stringify(this.selectGoods))
+					this.initCarPrice();
+				  }  
+			},
 			openpop(name,item,showBottom){
 				this.popName = name;
 				if(name=="addbusket"){
@@ -525,7 +563,8 @@
 				}else if(name == "workArea"){
 					this.indexVal = [0,0,0]
 				}else if(name == "cart"){
-					this.selectGoods =JSON.parse(localStorage.getItem("busket")) || []
+					this.selectGoods =JSON.parse(localStorage.getItem("busket")) || [];
+					this.initCarPrice();
 				}
 				this.$refs[name].open()
 				if(!showBottom){
@@ -752,9 +791,12 @@
 				height:500upx;
 			}
 			.goodslist{
+				height:400upx;
+				overflow-x:hidden;
+				overflow-y:auto;
+				border-bottom:1upx solid #f0f0f0;
 				.item{
-					padding:30upx;
-					border-bottom:1upx solid #f0f0f0;
+					padding:20upx;
 					.name{
 						white-space:nowrap;
 						width:100%;
@@ -772,6 +814,13 @@
 							padding-right:20upx;
 							border-right:1upx solid #999;
 							margin-right:20upx;
+						}
+						.num{
+							font-size: 28upx;
+							color: #FF4117;
+							font-weight:bold;
+							text-align:left;
+							flex:1;
 						}
 						.price{
 							font-size: 28upx;

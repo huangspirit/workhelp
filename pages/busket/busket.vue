@@ -32,14 +32,14 @@
 					<view v-else class="oper">
 						<text class="price">￥{{item.choseGuige.price}}</text>
 						<view class="btn">
-							<uni-number-box :value="item.goodsNumber" :min="Number(item.choseGuige.beginCount)" :max="item.choseGuige.num" :step="Number(item.choseGuige.beginCount)"></uni-number-box>
+							<uni-number-box :value="item.goodsNumber" :min="Number(item.choseGuige.beginCount)" :max="item.choseGuige.num" :step="Number(item.choseGuige.beginCount)" @change="monitorNumber($event,item,index)"></uni-number-box>
 						</view>
 					</view>
 				</view>
 			</view>
 		</view>
 		<view class="bottom" v-if="!isEditting">
-			<view>总计：<text class="money" >￥3.89</text></view>
+			<view>总计：<text class="money" >￥{{carPrice}}</text></view>
 			<view class="keyMoney">个人余额：￥8 <view class="instro"></view></view>
 			<view class="btnwrap" @click="buyHandler"><view class="btn">领取</view></view>
 		</view>
@@ -111,6 +111,7 @@
 		components: {uniNumberBox,addbusketDetail},
 		data() {
 			return {
+				carPrice:0,
 				isAllcheck:false,
 				isEditting:false,
 				popName:"",
@@ -132,6 +133,18 @@
 			}
 		},
 		methods:{
+			
+			
+			monitorNumber(e,item,index){
+				  if(e!=item.goodsNumber){
+					  let items=item;
+					  items.goodsNumber=e;
+					 this.goodslist.splice(index, 1);
+					 this.goodslist.splice(index,0,items);
+				     localStorage.setItem("busket",JSON.stringify(this.goodslist))
+					 this.initCarPrice();
+				  }  
+			},
 			//删除
 			clearCart(){
 				let arr = [];
@@ -144,6 +157,7 @@
 					this.goodslist = arr;
 					this.isEditting = false;
 				})
+				
 			},
 			//全选
 			changeAllCheck(){
@@ -157,6 +171,7 @@
 			deleteall(){
 				this.goodslist = []
 				localStorage.removeItem("busket")
+				 this.initCarPrice();
 			},
 			//删除物品
 			delete(index){
@@ -165,11 +180,24 @@
 				// window.localStorage.removeItem(key);//删除指定key的数据  // 删除单个数据，根据键值移除对应的信息。
 				this.goodslist.splice(index,1);
 				localStorage.setItem("busket",JSON.stringify(this.goodslist))
+				this.initCarPrice();
 			},
 			init(){
 				//获取购物篮列表
-				this. goodslist=JSON.parse(localStorage.getItem("busket"))
-				console.log(this.goodslist)
+				this.initCarPrice();
+			},
+			
+			initCarPrice(){
+				this.carPrice=0;
+				this.goodslist=JSON.parse(localStorage.getItem("busket")) || [];
+				 let carCount=this.goodslist.length;
+				if(carCount!=0){
+					for(let item of this.goodslist){
+						this.carPrice+=item.choseGuige.price * item.goodsNumber
+					}
+					var num=this.carPrice;
+					this.carPrice=num.toFixed(2);
+				}
 			},
 			changeSelect(index){
 			 this.goodslist.splice(index,1,{...this.goodslist[index],selected:!this.goodslist[index].selected},)

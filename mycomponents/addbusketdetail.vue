@@ -52,6 +52,7 @@
 		},
 		data() {
 			return {
+				carPrice:0,
 				showPrise:true,
 				goodsDetail:{},
 				choseGuige:{},
@@ -108,10 +109,33 @@
 					console.log("shoucijiaru")
 					localStorage.setItem("busket",JSON.stringify([{...this.goodsDetail,goodsNumber:this.goodsNumber,choseGuige:this.choseGuige}]))
 				}
+				this.initCarPrice();
+				console.log("carprice>>>>>>",this.carPrice);
+				this.$emit("func",this.carPrice)
 				uni.showToast({
 					title:"加入成功"
 				})
 			},
+			
+			initCarPrice(){
+				this.carPrice=0;
+				let goodslist=JSON.parse(localStorage.getItem("busket")) || [];
+				 let carCount=goodslist.length;
+				if(carCount!=0){
+					for(let item of goodslist){
+						this.carPrice+=item.choseGuige.price * item.goodsNumber
+					}
+					var num=this.carPrice;
+					this.carPrice=num.toFixed(2);
+				}
+			},
+			
+			
+			
+			
+			
+			
+			
 			init(){
 				this.getGoodsDetail();
 			},
