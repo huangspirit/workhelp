@@ -143,7 +143,7 @@
 						<text class="desc">剩余:{{item.choseGuige.num}}</text>
 						<text class="price">￥{{item.choseGuige.price}}</text>
 						<view class="count">
-							<uni-number-box :min="parseInt(item.goodsNumber)"  :value="parseInt(item.goodsNumber)"   :max="parseInt(item.choseGuige.num)" :step="parseInt(item.choseGuige.beginCount)"  @change="monitorNumber($event,item,index)"></uni-number-box>
+							<uni-number-box :min="parseInt(item.choseGuige.beginCount)"  :value="parseInt(item.goodsNumber)"   :max="parseInt(item.choseGuige.num)" :step="parseInt(item.choseGuige.beginCount)"  @change="monitorNumber($event,item,index)"></uni-number-box>
 						</view>
 					</view>
 				</view>
@@ -166,7 +166,7 @@
 		<uni-popup ref="login" type="center" @change="changepop">
 			<view class="buyRes ">
 			<view class="title">
-			    <view class="cont">系统检测到您未登录，请授权登录使用</view>
+			    <view class="cont">系统检测到您未登录,请授权登录使用</view>
 				<view class="btnwrap" @click="sureLogin">
 					确认
 				</view>
@@ -246,13 +246,11 @@
 			//监控是否登录
 			this.checkLogin();
 			this.getnoticelist();
-			console.log("我回来了");
 			this.initCarPrice();
+			this.loadProvinces()
 			if(localStorage.getItem('defaultArea')){
 				this.defaultArea = {
 					name:localStorage.getItem('defaultArea') || '点击选择职场'}
-			}else{
-				this.loadProvinces()//页面加载 1标识页面加载 2主动调用
 			}
 		},
 		watch:{
@@ -263,10 +261,10 @@
 				},
 				deep:true
 			},
+			
 			defaultArea:{
 				//监控职场位置
 				handler:function(val){
-					console.log("11111",val);
 					this.getGoodsCategory();
 					localStorage.setItem("defaultArea",val.name)
 				},
@@ -543,9 +541,6 @@
 			},
 			monitorNumber(e,item,index){
 				  if(e!=item.goodsNumber){
-					  console.log(e);
-					  console.log(item);
-					  console.log(index);
 					  let items=item;
 					  items.goodsNumber=e;
 					 this.selectGoods.splice(index, 1);
@@ -580,9 +575,6 @@
 			
 			},
 			ensureArea(){
-				console.log("确认选择")
-				console.log(this.data3)
-				console.log(this.indexVal)
 				this.defaultArea = {
 					name:this.data3[this.indexVal[2]].name,
 				}

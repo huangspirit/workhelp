@@ -126,7 +126,7 @@
 		watch:{
 			goodslist:{
 				handler:function(val){
-					console.log("111111")
+					console.log("111555511")
 					localStorage.setItem("busket",JSON.stringify(val))
 				},
 				deep:true
@@ -153,6 +153,7 @@
 						arr.push(item)
 					}
 				})
+				 this.initCarPrice();
 				this.$nextTick(()=>{
 					this.goodslist = arr;
 					this.isEditting = false;

@@ -110,7 +110,6 @@
 					localStorage.setItem("busket",JSON.stringify([{...this.goodsDetail,goodsNumber:this.goodsNumber,choseGuige:this.choseGuige}]))
 				}
 				this.initCarPrice();
-				console.log("carprice>>>>>>",this.carPrice);
 				this.$emit("func",this.carPrice)
 				uni.showToast({
 					title:"加入成功"
